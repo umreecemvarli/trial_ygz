@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bİ KALP Bİ KERE SEVER</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="fireworks"></canvas>
+  <div class="center-text">Bİ KALP Bİ KERE SEVER</div>
+
+  <audio id="bgm" loop>
+    <source src="muzik_ilk25saniye.mp3" type="audio/mpeg" />
+    Tarayıcınız ses dosyasını desteklemiyor.
+  </audio>
+
+  <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.10.0/dist/index.umd.min.js"></script>
+  <script>
+    // Müzik tıklanınca çalsın
+    document.addEventListener("click", function () {
+      const audio = document.getElementById("bgm");
+      audio.play();
+    });
+
+    // Fireworks başlat
+    const container = document.getElementById("fireworks");
+    const fireworks = new Fireworks.Fireworks(container, {
+      autoresize: true,
+      opacity: 0.5,
+      acceleration: 1.05,
+      friction: 0.97,
+      gravity: 1.5,
+      particles: 100,
+      trace: 5,
+      traceSpeed: 10,
+      explosion: 8,
+      intensity: 60,
+      flickering: 80,
+      lineStyle: "round",
+      hue: { min: 0, max: 360 },
+      delay: { min: 5, max: 20 },
+      rocketsPoint: { min: 0, max: 100 },
+      lineWidth: {
+        explosion: { min: 2, max: 4 },
+        trace: { min: 2, max: 3 }
+      },
+      brightness: { min: 60, max: 90 },
+      decay: { min: 0.012, max: 0.03 },
+      mouse: { click: true, move: false, max: 2 }
+    });
+    fireworks.start();
+  </script>
+</body>
+</html>
